@@ -1,0 +1,96 @@
+name: VN Market Analysis - Daily Update
+
+on:
+  schedule:
+    # 17:00 ICT = 10:00 UTC (Thứ 2 - Thứ 6)
+    - cron: '0 10 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      skip_analysis:
+        description: 'Bỏ qua phân tích DeepSeek (chỉ fetch data)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "market-update"
+  cancel-in-progress: true
+
+jobs:
+  update-market-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fetch market data (vnstock)
+        env:
+          VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }}
+        run: |
+          echo "=== Fetching VN Market Data ==="
+          python scripts/fetch_data.py
+          echo "=== Data size ==="
+          ls -lh data/
+
+      - name: Analyze with DeepSeek AI
+        if: ${{ github.event.inputs.skip_analysis != 'true' }}
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "=== Running DeepSeek Analysis ==="
+          python scripts/analyze.py
+
+      - name: Build static site
+        run: |
+          echo "=== Building HTML ==="
+          python scripts/build_site.py
+          echo "=== Site size ==="
+          ls -lh docs/
+
+      - name: Commit and push data + site
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/ docs/
+          
+          DATE=$(TZ='Asia/Ho_Chi_Minh' date '+%Y-%m-%d %H:%M ICT')
+          git diff --staged --quiet || git commit -m "📊 Market update: $DATE"
+          git push
+
+      - name: Job summary
+        run: |
+          echo "## ✅ VN Market Update Hoàn Thành" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Index | Giá | Thay đổi |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|-----|----------|" >> $GITHUB_STEP_SUMMARY
+          python -c "
+          import json
+          with open('data/market_data.json') as f:
+              d = json.load(f)
+          for code in ['VNINDEX','VN30','VN100']:
+              snap = d.get(code, {}).get('snapshot', {})
+              close = snap.get('close', 'N/A')
+              pct = snap.get('change_pct', 0)
+              icon = '🟢' if pct >= 0 else '🔴'
+              print(f'| {code} | {close:,.2f} | {icon} {pct:+.2f}% |')
+          " >> $GITHUB_STEP_SUMMARY

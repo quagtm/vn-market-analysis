@@ -1,0 +1,404 @@
+{
+  "_note": "File này là sample để test build_site.py mà không cần chạy fetch/analyze. Xóa và chạy pipeline thật để có dữ liệu thực.",
+  "VNINDEX": {
+    "index": "VNINDEX",
+    "snapshot": {
+      "date": "2025-06-02",
+      "close": 1285.47,
+      "open": 1272.30,
+      "high": 1288.90,
+      "low": 1269.15,
+      "volume": 748320000,
+      "change": 13.17,
+      "change_pct": 1.04,
+      "ma5": 1278.32,
+      "ma10": 1265.80,
+      "ma20": 1258.45,
+      "ma50": 1240.12,
+      "ma100": 1210.55,
+      "ma200": 1188.30,
+      "bb_upper": 1310.20,
+      "bb_mid": 1258.45,
+      "bb_lower": 1206.70,
+      "rsi14": 62.4,
+      "macd": 18.5,
+      "macd_signal": 15.2,
+      "macd_hist": 3.3,
+      "stoch_k": 74.2,
+      "stoch_d": 68.5,
+      "atr14": 22.4,
+      "vol_ma20": 680000000,
+      "pivot": 1281.17,
+      "r1": 1293.19,
+      "r2": 1312.92,
+      "r3": 1324.94,
+      "s1": 1261.44,
+      "s2": 1249.42,
+      "s3": 1229.69,
+      "fibo_236": 1305.80,
+      "fibo_382": 1288.40,
+      "fibo_500": 1272.50,
+      "fibo_618": 1256.60,
+      "fibo_786": 1235.20,
+      "hi52": 1340.50,
+      "lo52": 1204.50
+    },
+    "ohlcv": [],
+    "movers": {
+      "top_gainers": [
+        {"symbol": "VCB", "close": 98000, "change_pct": 2.3},
+        {"symbol": "HPG", "close": 27500, "change_pct": 1.8},
+        {"symbol": "FPT", "close": 142000, "change_pct": 1.5}
+      ],
+      "top_losers": [
+        {"symbol": "NVL", "close": 12500, "change_pct": -2.1},
+        {"symbol": "PDR", "close": 18200, "change_pct": -1.7},
+        {"symbol": "DXG", "close": 15300, "change_pct": -1.3}
+      ]
+    },
+    "sectors": {
+      "leading": [
+        {"name": "Ngân hàng", "change_pct": 1.8},
+        {"name": "Công nghệ", "change_pct": 1.5},
+        {"name": "Dầu khí", "change_pct": 0.9}
+      ],
+      "lagging": [
+        {"name": "Bất động sản", "change_pct": -0.8},
+        {"name": "Chứng khoán", "change_pct": -0.3},
+        {"name": "Thép/Khoáng", "change_pct": -0.1}
+      ],
+      "all": {
+        "Ngân hàng": 1.8,
+        "Công nghệ": 1.5,
+        "Dầu khí": 0.9,
+        "Tiêu dùng": 0.4,
+        "Thép/Khoáng": -0.1,
+        "Chứng khoán": -0.3,
+        "Bất động sản": -0.8
+      }
+    },
+    "analysis": {
+      "summary": "VNINDEX tăng mạnh 1.04% với thanh khoản cải thiện rõ rệt. Nhóm ngân hàng và công nghệ dẫn dắt đà phục hồi.",
+      "market_description": "VNINDEX kết thúc phiên giao dịch với mức tăng 13.17 điểm (+1.04%) lên 1,285.47 điểm, thanh khoản đạt 748 tỷ cổ phiếu vượt mức trung bình 20 phiên. Nhóm ngân hàng (VCB, BID, TCB) là đầu tàu kéo chỉ số, trong khi bất động sản chịu áp lực chốt lời. Giá đóng cửa vượt ngưỡng MA20 và MA50, tín hiệu kỹ thuật đang chuyển sang tích cực.",
+      "support_resistance": {
+        "key_resistance": "1,295-1,300 (R1 Pivot + Fibo 23.6%)",
+        "key_support": "1,258 (BB Middle + MA20)",
+        "comment": "Giá đang nằm giữa MA20 và BB Upper, momentum ngắn hạn tốt nhưng cần vượt 1,295 để xác nhận xu hướng tăng."
+      },
+      "timeframe_analysis": {
+        "short_term": {
+          "trend": "Tăng",
+          "strength": "Trung bình",
+          "signals": ["Giá > MA5 > MA10 > MA20", "RSI 62.4 - vùng tăng chưa quá mua", "Stochastic K vượt D đi lên"],
+          "comment": "Ngắn hạn 1-2 tuần: Xu hướng tăng rõ ràng với cả MA5/MA10/MA20 xếp thẳng hàng theo thứ tự tăng. RSI 62.4 còn dư địa trước khi vào vùng quá mua (70+). Điểm vào hợp lý gần MA20 quanh 1,258."
+        },
+        "mid_term": {
+          "trend": "Tăng",
+          "strength": "Mạnh",
+          "signals": ["Giá > MA50 + MA100 + MA200", "MACD Histogram dương và tăng", "Golden cross MA50/MA100 hình thành"],
+          "comment": "Trung hạn 1-3 tháng: Cấu trúc tăng vững chắc khi giá duy trì trên cả MA50, MA100 và MA200. MACD histogram dương 3.3 điểm báo hiệu momentum tăng còn mạnh. Mục tiêu trung hạn hướng về vùng 1,320-1,340."
+        },
+        "long_term": {
+          "trend": "Tăng",
+          "strength": "Trung bình",
+          "signals": ["MA200 đang dốc lên", "Giá trên MA200 97 điểm (+8.1%)", "Đỉnh sau cao hơn đỉnh trước"],
+          "comment": "Dài hạn 3-12 tháng: Xu hướng tăng dài hạn được xác nhận với MA200 dốc lên từ đầu năm 2024. Tuy nhiên mức chênh lệch giá/MA200 ~8% cho thấy thị trường có thể cần điều chỉnh trước khi tạo đỉnh mới."
+        }
+      },
+      "scenarios": [
+        {
+          "name": "Kịch bản tăng (Bull)",
+          "probability": 45,
+          "condition": "Vượt và giữ trên 1,295 với khối lượng > 800 tỷ cp",
+          "target": "1,320 - 1,340 (vùng đỉnh 52-week)",
+          "description": "Nếu nhóm ngân hàng tiếp tục dẫn dắt và dòng tiền duy trì, VNINDEX có thể kiểm tra vùng 1,320-1,340 trong 2-3 tuần tới. Tín hiệu xác nhận là MACD histogram tăng và RSI duy trì trên 55."
+        },
+        {
+          "name": "Kịch bản giảm (Bear)",
+          "probability": 25,
+          "condition": "Thủng 1,258 (MA20/BB Mid) với khối lượng lớn",
+          "target": "1,240 - 1,220 (MA50 + S2 Pivot)",
+          "description": "Nếu áp lực chốt lời gia tăng và dòng tiền rút khỏi nhóm ngân hàng, ngưỡng 1,258 bị phá vỡ sẽ kích hoạt sóng bán về MA50. Rủi ro lớn hơn nếu khối ngoại tiếp tục bán ròng."
+        },
+        {
+          "name": "Kịch bản trung lập (Sideways)",
+          "probability": 30,
+          "condition": "Dao động trong kênh 1,258 - 1,295",
+          "target": "Vùng 1,258 - 1,295",
+          "description": "Thị trường có thể tích lũy trong biên độ hẹp khi nhà đầu tư chờ đợi thêm catalyst từ kết quả kinh doanh Q1 và tín hiệu từ Fed. Kịch bản này phù hợp nếu thanh khoản giảm về mức trung bình."
+        }
+      ],
+      "key_levels": {
+        "immediate_resistance": 1295.0,
+        "immediate_support": 1258.0,
+        "strong_resistance": 1320.0,
+        "strong_support": 1240.0
+      },
+      "sentiment": "Tích cực",
+      "recommendation": "Duy trì vị thế, xem xét mua thêm nếu thủng điều chỉnh về 1,258-1,265 với stop loss tại 1,240."
+    },
+    "generated": "2025-06-02T17:15:00"
+  },
+  "VN30": {
+    "index": "VN30",
+    "snapshot": {
+      "date": "2025-06-02",
+      "close": 1342.85,
+      "open": 1328.40,
+      "high": 1346.20,
+      "low": 1325.30,
+      "volume": 285600000,
+      "change": 14.45,
+      "change_pct": 1.09,
+      "ma5": 1335.20,
+      "ma10": 1320.45,
+      "ma20": 1312.80,
+      "ma50": 1295.30,
+      "ma100": 1268.40,
+      "ma200": 1245.60,
+      "bb_upper": 1368.40,
+      "bb_mid": 1312.80,
+      "bb_lower": 1257.20,
+      "rsi14": 64.8,
+      "macd": 22.3,
+      "macd_signal": 18.7,
+      "macd_hist": 3.6,
+      "stoch_k": 78.5,
+      "stoch_d": 71.2,
+      "atr14": 24.8,
+      "vol_ma20": 260000000,
+      "pivot": 1338.12,
+      "r1": 1350.94,
+      "r2": 1368.80,
+      "r3": 1381.62,
+      "s1": 1320.26,
+      "s2": 1307.44,
+      "s3": 1289.58,
+      "fibo_236": 1358.40,
+      "fibo_382": 1338.60,
+      "fibo_500": 1320.80,
+      "fibo_618": 1303.00,
+      "fibo_786": 1279.40,
+      "hi52": 1395.40,
+      "lo52": 1246.20
+    },
+    "ohlcv": [],
+    "movers": {
+      "top_gainers": [
+        {"symbol": "VCB", "close": 98000, "change_pct": 2.3},
+        {"symbol": "BID", "close": 52000, "change_pct": 2.0},
+        {"symbol": "TCB", "close": 38500, "change_pct": 1.6}
+      ],
+      "top_losers": [
+        {"symbol": "VHM", "close": 42000, "change_pct": -1.8},
+        {"symbol": "VIC", "close": 68000, "change_pct": -1.2},
+        {"symbol": "MSN", "close": 78500, "change_pct": -0.8}
+      ]
+    },
+    "sectors": {
+      "leading": [
+        {"name": "Ngân hàng", "change_pct": 2.1},
+        {"name": "Công nghệ", "change_pct": 1.4},
+        {"name": "Dầu khí", "change_pct": 0.8}
+      ],
+      "lagging": [
+        {"name": "Bất động sản", "change_pct": -1.2},
+        {"name": "Tiêu dùng", "change_pct": -0.4},
+        {"name": "Chứng khoán", "change_pct": -0.2}
+      ],
+      "all": {}
+    },
+    "analysis": {
+      "summary": "VN30 tăng mạnh 1.09% với thanh khoản vượt trội. Nhóm blue-chip ngân hàng tiếp tục là trụ cột.",
+      "market_description": "VN30 phục hồi mạnh mẽ với mức tăng 14.45 điểm (+1.09%) nhờ sự bứt phá của các blue-chip ngân hàng VCB, BID, TCB. Thanh khoản rổ VN30 đạt 285.6 tỷ cp, vượt 10% so với trung bình 20 phiên. Ngược lại, nhóm bất động sản VHM, VIC chịu áp lực bán trong bối cảnh thị trường địa ốc còn thận trọng.",
+      "support_resistance": {
+        "key_resistance": "1,350-1,355 (R1 Pivot + Fibo 38.2%)",
+        "key_support": "1,312 (BB Middle + MA20)",
+        "comment": "VN30 đang tiếp cận ngưỡng kháng cự R1 Pivot. Cần quan sát hành động giá và khối lượng tại 1,350 để xác định đà tiếp theo."
+      },
+      "timeframe_analysis": {
+        "short_term": {
+          "trend": "Tăng",
+          "strength": "Mạnh",
+          "signals": ["MA5 > MA10 > MA20 - perfect alignment", "RSI 64.8 trong vùng tăng", "Stoch K=78.5 tiệm cận quá mua"],
+          "comment": "Ngắn hạn tích cực nhưng Stochastic %K đang ở mức 78.5 tiếp cận vùng quá mua (80+). Nhà đầu tư ngắn hạn nên cẩn thận với rủi ro điều chỉnh kỹ thuật."
+        },
+        "mid_term": {
+          "trend": "Tăng",
+          "strength": "Mạnh",
+          "signals": ["Giá vượt toàn bộ MA từ MA20 đến MA200", "MACD histogram dương +3.6", "Khối lượng trung bình gia tăng"],
+          "comment": "Trung hạn rất tích cực khi VN30 xác lập xu hướng tăng bền vững trên tất cả các đường MA. MACD histogram tăng cho thấy momentum mạnh chưa đảo chiều."
+        },
+        "long_term": {
+          "trend": "Tăng",
+          "strength": "Trung bình",
+          "signals": ["MA200 dốc lên ổn định", "Higher high, higher low cấu trúc sóng tăng", "Khoảng cách giá/MA200 = 7.8%"],
+          "comment": "Xu hướng tăng dài hạn được duy trì. VN30 cần chú ý ngưỡng 1,395 (đỉnh 52-week), đây là vùng kháng cự tâm lý mạnh nhất."
+        }
+      },
+      "scenarios": [
+        {
+          "name": "Kịch bản tăng (Bull)",
+          "probability": 50,
+          "condition": "VCB, BID, TCB duy trì đà tăng và vượt 1,355",
+          "target": "1,380 - 1,395 (đỉnh 52-week)",
+          "description": "Kịch bản nhiều khả năng nhất khi nhóm ngân hàng còn dư địa tăng. Catalyst là kết quả kinh doanh Q1 tốt và Fed giữ nguyên lãi suất.",
+          "probability": 50
+        },
+        {
+          "name": "Kịch bản giảm (Bear)",
+          "probability": 20,
+          "condition": "Phá vỡ 1,312 (MA20) với volume cao",
+          "target": "1,285 - 1,270 (MA50 + S2 Pivot)",
+          "description": "Rủi ro thấp hơn so với VNINDEX do blue-chip ít bị tác động bởi margin call. Điều kiện cần là bán ròng mạnh từ khối ngoại."
+        },
+        {
+          "name": "Kịch bản trung lập (Sideways)",
+          "probability": 30,
+          "condition": "Giao dịch trong kênh 1,312 - 1,355",
+          "target": "Kênh 1,312 - 1,355",
+          "description": "Tích lũy trước khi bứt phá. Thời gian tích lũy có thể kéo dài 1-2 tuần khi nhà đầu tư chờ xác nhận thêm về triển vọng kinh tế."
+        }
+      ],
+      "key_levels": {
+        "immediate_resistance": 1355.0,
+        "immediate_support": 1312.0,
+        "strong_resistance": 1395.0,
+        "strong_support": 1270.0
+      },
+      "sentiment": "Tích cực",
+      "recommendation": "Nắm giữ và mua thêm nhóm ngân hàng trong điều chỉnh về 1,312-1,325, stop loss 1,290."
+    }
+  },
+  "VN100": {
+    "index": "VN100",
+    "snapshot": {
+      "date": "2025-06-02",
+      "close": 1198.30,
+      "open": 1186.40,
+      "high": 1201.85,
+      "low": 1183.20,
+      "volume": 520400000,
+      "change": 11.90,
+      "change_pct": 1.00,
+      "ma5": 1192.40,
+      "ma10": 1180.25,
+      "ma20": 1174.60,
+      "ma50": 1155.80,
+      "ma100": 1130.45,
+      "ma200": 1108.90,
+      "bb_upper": 1224.80,
+      "bb_mid": 1174.60,
+      "bb_lower": 1124.40,
+      "rsi14": 61.2,
+      "macd": 16.8,
+      "macd_signal": 13.9,
+      "macd_hist": 2.9,
+      "stoch_k": 72.3,
+      "stoch_d": 65.8,
+      "atr14": 20.8,
+      "vol_ma20": 490000000,
+      "pivot": 1194.45,
+      "r1": 1205.70,
+      "r2": 1223.00,
+      "r3": 1234.25,
+      "s1": 1177.15,
+      "s2": 1165.90,
+      "s3": 1148.60,
+      "fibo_236": 1218.20,
+      "fibo_382": 1201.40,
+      "fibo_500": 1186.00,
+      "fibo_618": 1170.60,
+      "fibo_786": 1149.80,
+      "hi52": 1252.50,
+      "lo52": 1119.50
+    },
+    "ohlcv": [],
+    "movers": {
+      "top_gainers": [
+        {"symbol": "VCB", "close": 98000, "change_pct": 2.3},
+        {"symbol": "FPT", "close": 142000, "change_pct": 1.8},
+        {"symbol": "GAS", "close": 82500, "change_pct": 1.4}
+      ],
+      "top_losers": [
+        {"symbol": "PDR", "close": 18200, "change_pct": -2.1},
+        {"symbol": "DXG", "close": 15300, "change_pct": -1.6},
+        {"symbol": "NLG", "close": 32500, "change_pct": -1.2}
+      ]
+    },
+    "sectors": {
+      "leading": [
+        {"name": "Ngân hàng", "change_pct": 1.9},
+        {"name": "Dầu khí", "change_pct": 1.2},
+        {"name": "Tiêu dùng", "change_pct": 0.7}
+      ],
+      "lagging": [
+        {"name": "Bất động sản", "change_pct": -1.0},
+        {"name": "Chứng khoán", "change_pct": -0.4},
+        {"name": "Thép/Khoáng", "change_pct": -0.2}
+      ],
+      "all": {}
+    },
+    "analysis": {
+      "summary": "VN100 tăng đồng pha với VN30, phản ánh đà phục hồi rộng khắp thị trường vốn hóa lớn.",
+      "market_description": "VN100 ghi nhận mức tăng 11.9 điểm (+1.00%) với thanh khoản 520.4 tỷ cp, vượt trung bình 20 phiên. Đà tăng được dẫn dắt bởi nhóm ngân hàng và dầu khí trong khi bất động sản mid-cap như PDR, DXG tiếp tục phân hóa. Nhóm hàng tiêu dùng (VNM, MWG) ổn định, hỗ trợ tâm lý thị trường.",
+      "support_resistance": {
+        "key_resistance": "1,205-1,210 (R1 Pivot + Fibo 38.2%)",
+        "key_support": "1,174 (BB Middle + MA20)",
+        "comment": "VN100 đang ở vùng trung bình, cách đỉnh 52-week còn 4.5%, dư địa tăng hợp lý nếu momentum duy trì."
+      },
+      "timeframe_analysis": {
+        "short_term": {
+          "trend": "Tăng",
+          "strength": "Trung bình",
+          "signals": ["Giá > MA5 > MA10 > MA20", "RSI 61.2 duy trì tích cực", "Volume trên trung bình"],
+          "comment": "Ngắn hạn tích cực với cấu trúc MA xếp theo thứ tự tăng. RSI 61.2 cho thấy còn dư địa tăng. Lưu ý thanh khoản cần duy trì trên 500 tỷ cp để xác nhận xu hướng."
+        },
+        "mid_term": {
+          "trend": "Tăng",
+          "strength": "Trung bình",
+          "signals": ["MA50 và MA100 hướng lên", "MACD dương +2.9", "Giá > MA50, MA100, MA200"],
+          "comment": "Trung hạn tích cực nhưng kém hơn VN30 do nhóm mid-cap bất động sản và chứng khoán còn yếu. Tập trung vào ngân hàng và công nghệ trong rổ VN100 sẽ hiệu quả hơn."
+        },
+        "long_term": {
+          "trend": "Tăng",
+          "strength": "Trung bình",
+          "signals": ["MA200 dốc lên", "Cách đỉnh 52-week 4.5%", "Hỗ trợ MA100 vững"],
+          "comment": "Dài hạn xu hướng tăng được duy trì. VN100 với độ rộng thị trường lớn hơn phản ánh sức khỏe tổng thể của thị trường chứng khoán Việt Nam tốt hơn VNINDEX."
+        }
+      },
+      "scenarios": [
+        {
+          "name": "Kịch bản tăng (Bull)",
+          "probability": 42,
+          "condition": "Vượt 1,210 với thanh khoản > 550 tỷ cp",
+          "target": "1,230 - 1,252 (đỉnh 52-week)",
+          "description": "Kịch bản tăng khả thi nếu nhóm ngân hàng và dầu khí giữ đà. Thị trường bất động sản cần phục hồi để VN100 bứt phá mạnh hơn."
+        },
+        {
+          "name": "Kịch bản giảm (Bear)",
+          "probability": 28,
+          "condition": "Phá vỡ 1,174 (MA20) và 1,155 (MA50)",
+          "target": "1,130 - 1,120 (MA100 + hỗ trợ dài hạn)",
+          "description": "Rủi ro tăng nếu dòng tiền rút khỏi mid-cap lan rộng sang blue-chip. Ngưỡng 1,155 (MA50) là tuyến phòng thủ quan trọng cần bảo vệ."
+        },
+        {
+          "name": "Kịch bản trung lập (Sideways)",
+          "probability": 30,
+          "condition": "Dao động 1,174 - 1,210",
+          "target": "Kênh 1,174 - 1,210",
+          "description": "Tích lũy trong kênh hẹp khả năng cao trong 1-2 tuần. Sự phân hóa giữa blue-chip và mid-cap có thể kéo dài thêm trước khi thị trường đi theo một chiều rõ ràng."
+        }
+      ],
+      "key_levels": {
+        "immediate_resistance": 1210.0,
+        "immediate_support": 1174.0,
+        "strong_resistance": 1252.0,
+        "strong_support": 1130.0
+      },
+      "sentiment": "Tích cực",
+      "recommendation": "Tập trung vào blue-chip trong rổ VN100, tránh mid-cap BĐS. Mua trong vùng hỗ trợ 1,174-1,185."
+    }
+  },
+  "generated_at": "2025-06-02T17:15:30"
+}
