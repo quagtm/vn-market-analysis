@@ -89,8 +89,10 @@ jobs:
               d = json.load(f)
           for code in ['VNINDEX','VN30','VN100']:
               snap = d.get(code, {}).get('snapshot', {})
-              close = snap.get('close', 'N/A')
-              pct = snap.get('change_pct', 0)
+              close = snap.get('close', 0) or 0
+              pct = snap.get('change_pct', 0) or 0
               icon = '🟢' if pct >= 0 else '🔴'
-              print(f'| {code} | {close:,.2f} | {icon} {pct:+.2f}% |')
+              close_str = '{:,.2f}'.format(close)
+              pct_str = '{:+.2f}%'.format(pct)
+              print('| ' + code + ' | ' + close_str + ' | ' + icon + ' ' + pct_str + ' |')
           " >> $GITHUB_STEP_SUMMARY
