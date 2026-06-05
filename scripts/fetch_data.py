@@ -11,7 +11,14 @@ import numpy as np
 import pandas as pd
 
 # ─── vnstock ───────────────────────────────────────────────────────────────────
-from vnstock import Vnstock
+import vnai
+from vnstock.api.quote import Quote
+from vnstock.api.listing import Listing
+
+# Setup API key từ GitHub Secret
+_api_key = os.environ.get("vnstock_149d30a66f8b96efc43ca373a903b58b", "")
+if _api_key:
+    vnai.setup_api_key(_api_key)
 
 INDICES = {
     "VNINDEX": "VNINDEX",
@@ -188,13 +195,13 @@ def ohlcv_records(df: pd.DataFrame, n=365) -> list:
 def get_index_constituents(index_code: str) -> list[str]:
     """Lấy danh sách mã cổ phiếu trong rổ index"""
     try:
-        stock = Vnstock().stock(symbol="VN30F1M", source="VCI")
+        stock = Listing(source="VCI")
         if index_code == "VN30":
-            df = stock.listing.symbols_by_group("VN30")
+            df = stock.symbols_by_group("VN30")
         elif index_code == "VN100":
-            df = stock.listing.symbols_by_group("VN100")
+            df = stock.symbols_by_group("VN100")
         else:
-            df = stock.listing.symbols_by_group("HOSE")
+            df = stock.symbols_by_group("HOSE")
         if isinstance(df, pd.DataFrame):
             return df["symbol"].tolist()[:50]
         return list(df)[:50]
@@ -216,7 +223,7 @@ def get_index_constituents(index_code: str) -> list[str]:
 def get_top_movers(symbols: list[str], date_str: str) -> dict:
     """Lấy top gainers/losers trong ngày"""
     results = []
-    stock_client = Vnstock().stock(symbol="VCB", source="VCI")
+    stock_client = Quote(symbol="VCB", source="VCI")
     
     for sym in symbols[:40]:  # giới hạn để tránh timeout
         try:
@@ -297,7 +304,7 @@ def get_sector_performance(symbols: list[str], date_str: str) -> dict:
 def fetch_index(index_code: str, symbol: str) -> dict:
     print(f"\n{'='*50}")
     print(f"  Fetching {index_code} ...")
-    stock_client = Vnstock().stock(symbol=symbol, source="VCI")
+    stock_client = Quote(symbol=symbol, source="VCI")
 
     # Lấy OHLCV
     hist = stock_client.quote.history(
