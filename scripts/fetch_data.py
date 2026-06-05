@@ -202,9 +202,9 @@ def get_index_constituents(index_code: str) -> list[str]:
         print(f"  [WARN] Không lấy được constituents {index_code}: {e}")
         # Fallback: VN30 blue chips
         if index_code == "VN30":
-            return ["VCB","BID","CTG","TCB","MBB","VPB","HPG","VIC","VHM","MSN",
-                    "GAS","SAB","VNM","PLX","POW","FPT","MWG","PNJ","REE","SHB",
-                    "SSI","HDB","VCI","ACB","STB","EIB","LPB","KDH","VRE","PDR"]
+            return ["ACB","BID","BSR","CTG","FPT","GAS","GVR","HDB","HPG","LPB",
+                    "MBB","MSN","MWG","PLX","SAB","SHB","SSB","SSI","STB","TCB",
+                    "TPB","VCB","VHM","VIB","VIB","VJC","VNM","VPB","VRE","VPL"]
         elif index_code == "VN100":
             return ["VCB","BID","CTG","TCB","MBB","VPB","HPG","VIC","VHM","MSN",
                     "GAS","SAB","VNM","PLX","POW","FPT","MWG","PNJ","REE","SHB",
@@ -297,7 +297,7 @@ def get_sector_performance(symbols: list[str], date_str: str) -> dict:
 def fetch_index(index_code: str, symbol: str) -> dict:
     print(f"\n{'='*50}")
     print(f"  Fetching {index_code} ...")
-    stock_client = Vnstock().stock(symbol=symbol, source="TCBS")
+    stock_client = Vnstock().stock(symbol=symbol, source="VCI")
 
     # Lấy OHLCV
     hist = stock_client.quote.history(
