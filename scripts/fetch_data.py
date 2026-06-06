@@ -193,65 +193,11 @@ def get_index_constituents(index_code: str) -> list:
 # ─── Movers & Sectors ─────────────────────────────────────────────────────────
 
 def get_top_movers(symbols: list, date_str: str) -> dict:
-    results = []
-    start = (datetime.today() - timedelta(days=7)).strftime("%Y-%m-%d")
-    for sym in symbols[:40]:
-        try:
-            q = Quote(symbol=sym, source="VCI")
-            hist = q.history(start=start, end=date_str, interval="1D")
-            if hist is None or len(hist) < 2:
-                continue
-            hist = hist.sort_values("time")
-            close = float(hist.iloc[-1]["close"])
-            prev  = float(hist.iloc[-2]["close"])
-            if close < 1000:
-                close *= 1000; prev *= 1000
-            chg_pct = (close - prev) / prev * 100 if prev else 0
-            results.append({"symbol": sym, "close": close, "change_pct": round(chg_pct, 2)})
-        except Exception:
-            continue
-    results.sort(key=lambda x: x["change_pct"], reverse=True)
-    return {"top_gainers": results[:3], "top_losers": results[-3:][::-1]}
+    return {"top_gainers": [], "top_losers": []}
 
 
 def get_sector_performance(symbols: list, date_str: str) -> dict:
-    sector_map = {
-        "Ngân hàng":    ["VCB","BID","CTG","TCB","MBB","VPB","HDB","ACB","STB","LPB","SHB"],
-        "Bất động sản": ["VIC","VHM","NVL","KDH","VRE","PDR","DXG","NLG"],
-        "Thép/Khoáng":  ["HPG","HSG","NKG","DGC"],
-        "Tiêu dùng":    ["MSN","VNM","SAB","MWG","PNJ"],
-        "Dầu khí":      ["GAS","PLX","POW","PVT","DPM"],
-        "Công nghệ":    ["FPT","CMG"],
-        "Chứng khoán":  ["SSI","HCM","VCI","SHS"],
-    }
-    start = (datetime.today() - timedelta(days=7)).strftime("%Y-%m-%d")
-    sector_results = {}
-    for sector, tickers in sector_map.items():
-        chg_list = []
-        for sym in tickers:
-            if symbols and sym not in symbols:
-                continue
-            try:
-                q = Quote(symbol=sym, source="VCI")
-                hist = q.history(start=start, end=date_str, interval="1D")
-                if hist is None or len(hist) < 2:
-                    continue
-                hist = hist.sort_values("time")
-                c = float(hist.iloc[-1]["close"])
-                p = float(hist.iloc[-2]["close"])
-                if c < 1000: c *= 1000; p *= 1000
-                chg_list.append((c - p) / p * 100 if p else 0)
-            except Exception:
-                continue
-        if chg_list:
-            sector_results[sector] = round(sum(chg_list) / len(chg_list), 2)
-
-    sorted_s = sorted(sector_results.items(), key=lambda x: x[1], reverse=True)
-    return {
-        "leading": [{"name": k, "change_pct": v} for k, v in sorted_s[:3]],
-        "lagging": [{"name": k, "change_pct": v} for k, v in sorted_s[-3:][::-1]],
-        "all":     dict(sorted_s),
-    }
+    return {"leading": [], "lagging": [], "all": {}}
 
 
 # ─── Main ─────────────────────────────────────────────────────────────────────
